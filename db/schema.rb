@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_07_213448) do
+ActiveRecord::Schema.define(version: 2018_08_07_231956) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,4 +23,38 @@ ActiveRecord::Schema.define(version: 2018_08_07_213448) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "entries", force: :cascade do |t|
+    t.bigint "account_id"
+    t.bigint "member_id"
+    t.string "voucher_type"
+    t.string "voucher_date"
+    t.string "voucher_number"
+    t.decimal "debit"
+    t.decimal "credit"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_entries_on_account_id"
+    t.index ["member_id"], name: "index_entries_on_member_id"
+  end
+
+  create_table "members", force: :cascade do |t|
+    t.string "code"
+    t.string "name"
+    t.string "membership_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "vouchers", force: :cascade do |t|
+    t.string "number"
+    t.string "date"
+    t.string "type"
+    t.string "explantion"
+    t.decimal "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "entries", "accounts"
+  add_foreign_key "entries", "members"
 end

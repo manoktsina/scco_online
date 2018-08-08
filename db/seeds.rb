@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Member.create(code: '1696', name: 'ALEJO, JESUS E', membership_type: 'REGULAR')
+
+Account.create(code: '101', title: 'Cash On Hand', nature: 'DEBIT')
+Account.create(code: '300', title: 'Savings Deposit', nature: 'CREDIT')

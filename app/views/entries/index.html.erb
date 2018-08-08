@@ -1,0 +1,31 @@
+<h1>Entries#show</h1>
+<p>Find me in app/views/entries/show.html.erb</p>
+
+<table>
+  <thead>
+    <td>ID</td>
+    <td>Member Code</td>
+    <td>Member Name</td>
+    <td>Account Code</td>
+    <td>Account Title</td>
+    <td>Debit</td>
+    <td>Credit</td>
+    <td>Voucher Type</td>
+    <td>Voucher Number</td>
+    <td>Voucher Date</td>
+  </thead>
+  <% @entries.each do |entry| %>
+    <tr>
+      <td><%= entry.id %></td>
+      <td><%= entry.member.code %></td>
+      <td><%= entry.member.name %></td>
+      <td><%= entry.account.code %></td>
+      <td><%= entry.account.title %></td>
+      <td><%= entry.debit %></td>
+      <td><%= entry.credit %></td>
+      <td><%= entry.voucher_type %></td>
+      <td><%= entry.voucher_date %></td>
+      <td><%= entry.voucher_number %></td>
+      </tr>
+  <% end %>
+</table>
